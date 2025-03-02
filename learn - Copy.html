@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Skill</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="learn.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>Select Skills to Learn</h1>
+    <div class="skills-container">
+        <div class="skill-card" onclick="toggleSkill(this, 'Photography')">
+            <h3>Photography</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'Coding')">
+            <h3>Coding</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'Fitness')">
+            <h3>Fitness</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'Sports')">
+            <h3>Sports</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'Music')">
+            <h3>Music</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'Calligraphy')">
+            <h3>Calligraphy</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'Dance')">
+            <h3>Dance</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'Cooking')">
+            <h3>Cooking</h3>
+        </div>
+    </div>
+    
+    <a href="form.html"><button class="submit-btn" onclick="submitSkills()">Enter</button></a>
+
+    <script>
+        let selectedSkills = new Set();
+
+        function toggleSkill(element, skill) {
+            if (selectedSkills.has(skill)) {
+                selectedSkills.delete(skill);
+                element.classList.remove("selected");
+            } else {
+                selectedSkills.add(skill);
+                element.classList.add("selected");
+            }
+        }
+
+        function submitSkills() {
+            if (selectedSkills.size === 0) {
+                alert("Please select at least one skill.");
+            } else {
+                alert("You have selected: " + Array.from(selectedSkills).join(", "));
+            }
+        }
+    </script>
+</body>
+</html>

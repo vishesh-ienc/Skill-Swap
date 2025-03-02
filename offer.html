@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer a Skill</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f6c6ee;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .skills-container, .subtopics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .skill-card, .subtopic-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .skill-card:hover, .subtopic-card:hover {
+            transform: scale(1.05);
+            background-color: #e5a9d5;
+        }
+        .selected {
+            border: 3px solid #b388eb;
+            box-shadow: 0px 0px 15px rgba(179, 136, 235, 0.7);
+        }
+        .section {
+            display: none;
+            padding: 20px;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .popup input {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .popup button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #b388eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #experience-range {
+            width: 80%;
+            accent-color: #b388eb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select a Skill to Offer</h1>
+    <div class="skills-container">
+        <div class="skill-card" onclick="toggleSkill(this, 'photography')">
+            <h3>Photography</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'coding')">
+            <h3>Coding</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'fitness')">
+            <h3>Fitness</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'sports')">
+            <h3>Sports</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'music')">
+            <h3>Music</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'calligraphy')">
+            <h3>Calligraphy</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'dance')">
+            <h3>Dance</h3>
+        </div>
+        <div class="skill-card" onclick="toggleSkill(this, 'cooking')">
+            <h3>Cooking</h3>
+        </div>
+    </div>
+    
+    <div id="subtopics" class="section">
+        <h2>Select a Subtopic</h2>
+        <div class="subtopics-container" id="subtopics-container"></div>
+    </div>
+    
+    <div class="popup" id="experience-popup">
+        <h3>How many years of experience do you have?</h3>
+        <input type="range" id="experience-range" min="0" max="5" step="1" value="0" oninput="updateExperienceValue()">
+        <p id="experience-value">0 years</p>
+        <a href="form.html"><button onclick="closePopup()">Enter</button></a>
+    </div>
+    
+    <script>
+        function toggleSkill(element, skill) {
+            let section = document.getElementById("subtopics");
+            let container = document.getElementById("subtopics-container");
+            container.innerHTML = ""; 
+            if (section.style.display === "block") {
+                section.style.display = "none";
+                return;
+            }
+            section.style.display = "block";
+            setTimeout(() => {
+                section.scrollIntoView({ behavior: "smooth", block: "center" });
+            }, 200);
+            
+            let subtopics = {
+                photography: ["Portraits", "Nature", "Editing"],
+                coding: ["Web Dev", "App Dev", "AI/ML"],
+                fitness: ["Cardio", "Strength", "Flexibility"],
+                sports: ["Football", "Basketball", "Tennis"],
+                music: ["Singing", "Guitar", "Production"],
+                calligraphy: ["Brush", "Gothic", "Modern"],
+                dance: ["Hip-Hop", "Bharatanatyam", "Freestyle"],
+                cooking: ["Baking", "Indian Cuisine", "Healthy Meals"]
+            };
+            
+            if (subtopics[skill]) {
+                subtopics[skill].forEach(subtopic => {
+                    let btn = document.createElement("div");
+                    btn.className = "subtopic-card";
+                    btn.innerText = subtopic;
+                    btn.onclick = function() {
+                        selectSubtopic(subtopic);
+                    };
+                    container.appendChild(btn);
+                });
+            }
+        }
+        
+        function selectSubtopic(subtopic) {
+            document.getElementById("experience-popup").style.display = "block";
+        }
+
+        function updateExperienceValue() {
+            document.getElementById("experience-value").innerText = document.getElementById("experience-range").value + " years";
+        }
+
+        function closePopup() {
+            document.getElementById("experience-popup").style.display = "none";
+        }
+    </script>
+</body>
+</html>

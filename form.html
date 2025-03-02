@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Swap Registration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ef69df, #de779f);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            margin-top: 8rem;
+            padding: 5rem;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 22px;
+            color: #ff5733;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        .radio-group label {
+            font-weight: normal;
+        }
+        .btn {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .optional {
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚀 Welcome to Skillverse! Your Talent Journey Begins Here! 🌟</h1>
+        <h2>Join the Skill Swap Revolution</h2>
+        <form id="skillForm" onsubmit="event.preventDefault(); redirectToConfetti();">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="college">College Name</label>
+            <input type="text" id="college" name="college" placeholder="Enter your college" required>
+
+            <label for="instagram">Instagram Handle</label>
+            <input type="text" id="instagram" name="instagram" placeholder="@your_instagram" required>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age" required>
+
+            <label>How would you like to connect?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="connect" value="Online" required> Online</label>
+                <label><input type="radio" name="connect" value="In-Person" required> In-Person</label>
+            </div>
+
+            <label for="interests">Your Interests & Hobbies</label>
+            <textarea id="interests" name="interests" placeholder="E.g., Coding, Music, Painting, Photography" rows="3" required></textarea>
+
+            <label for="resume">Upload Resume (Optional) <span class="optional">(PDF, DOCX)</span></label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+
+           <a href="confetti.html"><button type="submit" class="btn">Let's Get Started 🚀</button></a>
+        </form>
+    </div>
+
+    <script>
+        function redirectToConfetti() {
+            window.location.href = "confetti.html";
+        }
+    </script>
+    
+</body>
+</html>

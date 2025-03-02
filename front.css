@@ -1,0 +1,94 @@
+/* Body and background styles */
+body {
+    background: linear-gradient(135deg, #FFC1E3, #C2185B, #9B51E0);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Container styling */
+.container {
+    /* height: 100vh;
+    margin: auto; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+.container::before {
+    content: "";  /* Required to create a pseudo-element */
+    position: absolute;  /* Position it absolute to the body */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://img.freepik.com/premium-vector/abstract-pink-white-gradient-background-with-overlap-triangle-3d-light-leaks-modern-trendy-soft-color-presentation-design-flyer-social-media-cover-web-banner-tech-banner_249611-19050.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.8;  /* Reduce opacity of the background image */
+    z-index: -1;  /* Ensure the background image is behind the content */
+}
+/* Front text styling */
+.front-text {
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker background for better contrast */
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    max-width: 80%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Softer shadow for depth */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Front text hover effect */
+.front-text:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+/* "Get Started" button styles */
+.getstarted {
+    margin-bottom: 20px;
+}
+
+.started {
+    background-color: #ff7e5f; /* Soft pink-orange gradient background */
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.started:hover {
+    background-color: #feb47b; /* Lighter orange shade on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .front-text {
+        font-size: 1.4rem;
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .started {
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
+}
