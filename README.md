@@ -1,4 +1,4 @@
-Creator and contributor 1 - Vishesh Jiwnani 
+contributor 1 - Vishesh Jiwnani 
 
 Contributor 2 - Shaun john cherian 
 
